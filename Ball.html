@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse tracker ball</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #101C2C;
+        }
+
+        .ball {
+            position: absolute;
+            top: var(--y);
+            left: var(--x);
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(aqua, transparent, transparent);
+            box-shadow: inset -40px -40px 40px 8px rgba(0, 255, 255, 0.03), inset 40px 40px 40px 8px rgba(0, 255, 255, 0.048);
+            ;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ball"></div>
+
+    <script>
+        const ball = document.querySelector('.ball');
+        document.addEventListener('mousemove', (e) =>
+        {
+            let x = e.clientX - 50;
+            let y = e.clientY;
+            ball.style.setProperty('--x', x + 'px')
+            ball.style.setProperty('--y', y + 'px')
+        })
+    </script>
+</body>
+
+</html>

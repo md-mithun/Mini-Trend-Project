@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            filter: blur(10px);
+            object-fit: cover;
+        }
+
+        .container .circle {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            z-index: 11;
+        }
+
+        .container .circle::before {
+            position: absolute;
+            content: ' ';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: inset 0 100px 100px rgba(255, 255, 255, 0.5),
+                inset 0 -100px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        .circle video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            filter: blur(0);
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="./nature.mp4" autoplay muted loop></video>
+    <div class="container">
+        <div class="circle">
+            <video src="./nature.mp4" autoplay muted loop></video>
+
+        </div>
+    </div>
+</body>
+
+</html>
